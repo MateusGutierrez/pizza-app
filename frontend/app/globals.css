@@ -4,6 +4,13 @@
 
   @layer base {
     :root {
+      --color1: 245 237 216;
+      --color2: 206 52 6;
+      --color3: 197 69 45;
+      --color4: 88 173 21;
+      --color5: 20 14.3% 4.1%;
+      --color6: 253 202 99;
+
       --background: 0 0% 100%;
       --foreground: 222.2 84% 4.9%;
 
@@ -73,4 +80,26 @@
     body {
       @apply bg-background text-foreground;
     }
+  }
+
+  @layer utilities {
+    .bg-color1 {
+      background-color: rgb(var(--color1));
+    }
+    .bg-color2 {
+      background-color: rgb(var(--color2));
+    }
+    .bg-color3 {
+      background-color: rgb(var(--color3));
+    }
+    .bg-color4 {
+      background-color: rgb(var(--color4));
+    }
+    .bg-color5 {
+      background-color: rgb(var(--color5));
+    }
+    .bg-color6 {
+      background-color: rgb(var(--color6));
+    }
+
   }
