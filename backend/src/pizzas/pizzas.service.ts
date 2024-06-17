@@ -10,8 +10,13 @@ export class PizzasService {
   constructor(@InjectModel(Pizza.name) private pizzaModel: Model<Pizza>) {}
 
   createAll(createPizzaDto: CreatePizzaDto[]) {
-    const pizzas = new this.pizzaModel(createPizzaDto);
-    return pizzas.save();
+    try {
+      const pizzas = this.pizzaModel.insertMany(createPizzaDto);
+      return pizzas;
+    } catch (error) {
+      console.error('Error inserting pizzas: ', error);
+      throw error;
+    }
   }
   findAll() {
     return this.pizzaModel.find();
