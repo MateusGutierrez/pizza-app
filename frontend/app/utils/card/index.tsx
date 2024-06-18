@@ -1,24 +1,27 @@
+import Image from "next/image"
+import background from "./assets/background.jpeg"
+
 export const Card = ({title, price}: {title: string, price: string | number}) => {
     return (
         <div
-        className="group flex flex-col justify-start items-start gap-2 w-96 h-56 duration-500 relative rounded-lg p-4 bg-gray-100 hover:-translate-y-2 hover:shadow-xl shadow-gray-300"
+            className="group flex flex-col justify-between items-start gap-2 max-w-full h-56 duration-500 relative rounded-lg p-4 bg-transparent hover:-translate-y-2 hover:shadow-xl shadow-gray-300"
         >
+            <Image src={background} alt={title} className="absolute left-0 top-0 h-56 max-w-full rounded-lg z-[1]"/>
             <div
-                className="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-gray-200"
-                // alt="image here"
-            ></div>
-
-            <div className="">
-                <h2 className="text-2xl font-bold mb-2 text-gray-800">{title}</h2>
-                <p className="text-gray-700 line-clamp-3">
-                Por apenas R$ XXX,XX
-                </p>
-            </div>
-            <button
-                className="hover:bg-gray-300 bg-gray-200 text-gray-800 mt-6 rounded p-2 px-6"
+                className="flex flex-col justify-center items-center absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-4 -right-4 w-1/3 h-1/3 rounded-lg bg-[#2d0000] z-[2]"    
             >
-                Aproveite 
+                <p className="z-[2] text-white">R$ XXX,XX</p>
+            </div>
+
+            <div className="z-[2] h-full flex flex-col items-start justify-between">
+                <h2 className="text-2xl font-bold mb-2 text-gray-200">{title}</h2>
+
+            <button
+                className="hover:bg-[#84985c] bg-[#cad2aa] text-gray-800 mt-6 rounded p-2 px-6 z-[2]"
+            >
+                Aproveitar 
             </button>
+            </div>
         </div>
     )
 }

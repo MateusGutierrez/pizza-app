@@ -26,7 +26,7 @@ export function CarouselOrientation() {
       }}
       plugins={[plugin.current]}
       orientation="horizontal"
-      className="w-full mt-4"
+      className="w-full"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >

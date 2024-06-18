@@ -9,7 +9,7 @@ export const Linkedin = () => {
                 width="1em"
                 height="1.1em"
                 viewBox="0 0 512 512"
-                stroke-width="0"
+                strokeWidth="0"
                 fill="currentColor"
                 stroke="currentColor"
                 className="w-5 h-5"
