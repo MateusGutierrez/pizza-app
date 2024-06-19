@@ -4,7 +4,6 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from './entities/user.entity';
 import { Model } from 'mongoose';
-import { LoginUserDto } from './dto/login-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -17,19 +16,6 @@ export class UsersService {
 
   findAll() {
     return this.userModel.find();
-  }
-
-  async login(loginUserDto: LoginUserDto) {
-    const user = await this.userModel
-      .findOne({
-        email: loginUserDto.email,
-        password: loginUserDto.password,
-      })
-      .exec();
-    if (user && user.password === loginUserDto.password) {
-      return { message: 'Login successful', user };
-    }
-    return { message: 'Invalid credentials' };
   }
 
   findOne(id: string) {

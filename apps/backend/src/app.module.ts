@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import { PizzasModule } from './pizzas/pizzas.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { LoginModule } from './login/login.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     ),
     UsersModule,
     PizzasModule,
+    LoginModule,
   ],
   controllers: [],
   providers: [],
