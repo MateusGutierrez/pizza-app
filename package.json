@@ -1,0 +1,22 @@
+{
+  "name": "pizza-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com-pessoal:MateusGutierrez/pizza-app.git",
+  "author": "Mateus Gutierrez <mateus.gutierrez@lagoasoft.com.br>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.4"
+  },
+  "packageManager": "yarn@1.22.22"
+}
