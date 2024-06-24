@@ -20,7 +20,7 @@ export const UserProvider = ({children}: ContextProps) => {
     }
     const register = async (data: TRegisterFormValue) => {
         try {
-            const response = await Api.post("users/register", data)
+            const response = await Api.post("users/", data)
             console.log(response)
         } catch (error) {
             console.log(error)

@@ -1,14 +1,10 @@
-import { Dashboard } from "./ui/dashboard";
-import { Footer } from "./utils/footer";
-import { Header } from "./utils/header";
+import Dashboard from "./ui/dashboard/page";
+import Layout from "./ui/layout";
 
-
-export default function Home() {
+export default function Page() {
   return (
-    <main className="bg-color1 relative">
-        <Header/>
-        <Dashboard/>
-        <Footer/>
-    </main>
-  );
+    <Layout>
+      <Dashboard />
+    </Layout>
+  )
 }
