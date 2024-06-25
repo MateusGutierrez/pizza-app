@@ -16,7 +16,7 @@ export const Menu = () => {
 
     const plugin = React.useRef(
         Autoplay({ delay: 4000, stopOnInteraction: true })
-      )
+    )
 
     if(pizzas === null) return null
 
@@ -36,8 +36,8 @@ export const Menu = () => {
                     <CarouselContent>
                     {
                         pizzas.map((pizza, index) => (
-                            <div className="py-3 max-w-full flex items-center justify-center md:basis-1/3 gap-[5rem]">
-                                <PizzaCard pizza={pizza} key={index}/>
+                            <div key={index} className="py-3 max-w-full flex items-center justify-center md:basis-1/3 gap-[5rem]">
+                                <PizzaCard pizza={pizza}/>
                             </div>
                         ))
                     }

@@ -4,27 +4,23 @@ export const HeaderTriggerRoutes = [
         link: `/`
     },
     {
-        title: 'Combos',
-        link: `/promotions`,
-    },
-    {
         title: 'Cardápio',
         link: `/ui/products`,
     },
     {
         title: 'Carrinho',
-        link: `/cart`
+        link: `/ui/cart`
     },
     {
         title: 'Sobre nós',
-        link: '/about'
+        link: '/ui/about'
     },
     {
         title: 'Login',
-        link: '/login',
+        link: '/ui/login',
     },
     {
         title: 'Cadastre-se',
-        link: '/register'
+        link: '/ui/register'
     }
 ]

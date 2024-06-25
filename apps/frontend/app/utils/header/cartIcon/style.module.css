@@ -1,0 +1,55 @@
+.btnCart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    position: relative;
+  }
+  
+  .btnCart::after {
+    content: attr(data-quantity);
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    font-size: 15px;
+    color: rgb(20 14.3% 4.1%);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s linear;
+    top: 115%;
+  }
+  
+  .iconCart {
+    width: 24.38px;
+    height: 30.52px;
+    transition: .2s linear;
+  }
+  
+  .iconCart path {
+    fill: #cd3c0c;
+    transition: .2s linear;
+  }
+  
+  .btnCart:hover > .icon-cart {
+    transform: scale(1.2);
+  }
+  
+  .btnCart:hover > .icon-cart path {
+    fill: rgb(20 14.3% 4.1%);
+  }
+  
+  .btnCart:hover::after {
+    visibility: visible;
+    opacity: 1;
+    top: 105%;
+  }
+  
+  .quantity {
+    display: none;
+  }
+  
