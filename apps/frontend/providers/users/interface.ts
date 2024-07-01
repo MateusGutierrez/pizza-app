@@ -1,4 +1,5 @@
-import { TLoginFormValue, TRegisterFormValue } from "@/schemas/userSchema";
+import { TLoginFormValue } from "@/schemas/userSchema/login";
+import { TRegisterFormValue } from "@/schemas/userSchema/register";
 
 export interface IUser {
     email: string;
@@ -16,8 +17,11 @@ interface IUserTRegisterResponse {
 }
 
 export interface IUserLoginResponse {
-    accessToken: string;
-    user: IUser;
+    _id: string;
+    _v: string | number;
+    email: string;
+    name:string;
+    password: string;
 }
 
 export interface IUserContext {

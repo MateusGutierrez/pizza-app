@@ -29,10 +29,10 @@ export function CarouselOrientation() {
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
-      <CarouselContent className="-mt-1">
+      <CarouselContent className="-mt-1 rounded-sm">
         {banners.map((banner, index) => (
-          <CarouselItem key={index} className="pt-1 max-w-full flex items-center justify-center md:basis-1/2">
-                  <Image src={banner.src} alt={banner.alt} />
+          <CarouselItem key={index} className="pt-1 max-w-full rounded-sm flex items-center justify-center md:basis-1/2">
+                  <Image src={banner.src} alt={banner.alt} className="rounded-sm"/>
           </CarouselItem>
         ))}
       </CarouselContent>

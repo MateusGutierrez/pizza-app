@@ -6,7 +6,7 @@ import { Promos } from "@/app/utils/promos"
 export default function Dashboard() {
     return (
             <div className="min-h-[100vh] w-[75%] m-auto mb-2rem overscroll-auto">
-                <div>
+                <div className="mt-1">
                     <CarouselOrientation/>
                 </div>
                 <div>

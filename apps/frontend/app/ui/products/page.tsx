@@ -1,5 +1,4 @@
 'use client'
-import { StateStorage } from 'zustand/middleware'
 import { PizzaCard } from "@/app/utils/product"
 import { Button } from "@/components/ui/button"
 import { store } from "@/store"
