@@ -8,8 +8,8 @@ export const HeaderTriggerRoutes = [
         link: `/ui/products`,
     },
     {
-        title: 'Carrinho',
-        link: `/ui/cart`
+        title: 'Monte seu pedido',
+        link: `/ui/order`
     },
     {
         title: 'Sobre nós',

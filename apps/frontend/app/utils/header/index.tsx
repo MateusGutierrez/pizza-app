@@ -19,11 +19,12 @@ import { store } from "@/store"
 
 
 export const Header = () => {
-    const { user } = store(({ user }) => ({ user }))
+    const { user, order } = store(({ user, order }) => ({ user, order }))
     const filteredRoutes = HeaderTriggerRoutes.filter( route => {
         if(user) return route.title !== 'Login' && route.title !== 'Cadastre-se'
         return route
     })
+    console.log(order, "order")
     return (
     <header className="flex items-center w-[100%] h-[200px] bg-[--color1] border-b-4 border-red-700">
         <div className="flex m-auto items-center justify-between w-[75%]">

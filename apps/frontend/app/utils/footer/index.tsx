@@ -9,10 +9,6 @@ export const Footer = () => {
                     <Linkedin/>
                     <Github/>
                 </div>
-                <div className="flex flex-col items-center gap-4">
-                    <span className="text-gray-300"><a href="mailto:mateusgutierrez9@gmail.com">mateusgutierrez9@gmail.com</a></span> 
-                    <span className="text-gray-300">(48) 98875-6690</span>
-                </div>
             </div>
         </footer>
     )
