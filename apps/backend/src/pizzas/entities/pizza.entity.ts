@@ -21,7 +21,7 @@ export class Pizza {
   border_flavor?: string | null;
 
   @Prop()
-  price: string;
+  price: number;
 }
 
 export const PizzaSchema = SchemaFactory.createForClass(Pizza);

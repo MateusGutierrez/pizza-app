@@ -15,15 +15,15 @@ export default function Register() {
   }, [register])
 
     return (
-      <div className="min-h-[80vh] w-[60%] flex m-auto justify-between items-center" >
-        <div className="w-[30%]  h-[600px]">
+      <div className="min-h-[80vh] w-[80%] flex m-auto justify-between items-center" >
+        <div className="w-[30%]  h-[600px] m-auto">
             <p className="text-4xl text-[#cd3c0c] mb-[4rem]">Cadastre-se</p>
             <GenericForm 
               schema={RegisterSchema} 
               defaultValues={defaultRegisterValues} 
               onSubmit={onSubmit}/>
         </div>
-        <Image src={registerImg} alt="pizza" className="w-[400px] rounded-3xl"/>
+        <Image src={registerImg} alt="pizza" className="h-[50%] p-[4rem] rounded-[8rem]"/>
       </div>
     )
 }

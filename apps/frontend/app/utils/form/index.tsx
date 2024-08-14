@@ -40,7 +40,7 @@ export default function GenericForm<T extends FieldValues>({ schema, defaultValu
               <FormItem>
                 <FormLabel>{key.charAt(0).toUpperCase() + key.slice(1)}</FormLabel>
                 <FormControl>
-                  <Input placeholder={key} {...field} />
+                  <Input placeholder={key} {...field} type={key} required/>
                 </FormControl>
                 <FormMessage />
               </FormItem>

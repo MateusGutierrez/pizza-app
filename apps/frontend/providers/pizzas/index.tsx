@@ -1,16 +1,16 @@
-import { createContext, useMemo } from "react";
+import { createContext } from "react";
 import React from "react";
-import { ContextProps, Flavors, IPizzaContext, Pizza, sizesAndPrices } from "./interface";
+import { ContextProps, IPizzaContext } from "./interface";
 import { Api } from "@/api/api";
 import { store } from "@/store";
-
+import {PizzaDto} from "@backend/pizzas/dto/create-pizza.dto"
 
 
 
 export const PizzaContext = createContext({} as IPizzaContext)
 
 export const PizzaProvider = ({children}: ContextProps) => {
-    const { addPizzas, pizzas, getSizeByPrice } = store(({ addPizzas, pizzas, getSizeByPrice }) => ({ addPizzas, pizzas, getSizeByPrice }))
+    const { addPizzas, getSizeByPrice } = store(({ addPizzas, pizzas, getSizeByPrice }) => ({ addPizzas, pizzas, getSizeByPrice }))
 
     const getPizzas = async () => {
         try {
@@ -19,7 +19,7 @@ export const PizzaProvider = ({children}: ContextProps) => {
                     Accept: '*/*',
                 }
             })
-            const filteredPizzas = response.data.filter((pizza: Pizza) => pizza.hasOwnProperty('flavor'))
+            const filteredPizzas = response.data.filter((pizza: PizzaDto) => pizza.hasOwnProperty('flavor'))
             addPizzas(filteredPizzas)
         } catch (error) {
             console.log(error)

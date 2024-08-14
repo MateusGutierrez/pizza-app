@@ -18,26 +18,28 @@ export function CarouselOrientation() {
   )
 
   return (
-    <Carousel
-      opts={{
-        align: "start",
-        loop: true
-      }}
-      plugins={[plugin.current]}
-      orientation="horizontal"
-      className="w-full"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-    >
-      <CarouselContent className="-mt-1 rounded-sm">
-        {banners.map((banner, index) => (
-          <CarouselItem key={index} className="pt-1 max-w-full rounded-sm flex items-center justify-center md:basis-1/2">
-                  <Image src={banner.src} alt={banner.alt} className="rounded-sm"/>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+    <div className="mt-1">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true
+        }}
+        plugins={[plugin.current]}
+        orientation="horizontal"
+        className="w-full"
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
+      >
+        <CarouselContent className="-mt-1 rounded-sm">
+          {banners.map((banner, index) => (
+            <CarouselItem key={index} className="pt-1 max-w-full rounded-sm flex items-center justify-center md:basis-1/2">
+                    <Image src={banner.src} alt={banner.alt} className="rounded-sm"/>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
   )
 }

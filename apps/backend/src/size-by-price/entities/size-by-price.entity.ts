@@ -9,7 +9,7 @@ export class SizeByPrice {
   size: string;
 
   @Prop()
-  price: string;
+  price: number;
 }
 
 export const SizeByPriceSchema = SchemaFactory.createForClass(SizeByPrice);
