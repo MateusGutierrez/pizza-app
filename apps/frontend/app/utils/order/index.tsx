@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card"
 import { CartComponent } from "../cart"
 import { SelectForm } from "./selectForm/form"
 import { ShoppingCart } from "lucide-react"
+import calculate from "./selectForm/calculate"
 
 
 export default function OrderComponent() {
@@ -15,9 +16,7 @@ export default function OrderComponent() {
   const {  order, removeOrder } = store(({  order, removeOrder }) => ({ order, removeOrder,
   }))
   const total = useMemo(() => {
-    const flavor_value = order.reduce((acc, { price }) => acc + price, 0);
-    const drink_value = order.reduce((acc, { drinks }) => acc + (drinks?.price ?? 0), 0);
-    return (flavor_value + drink_value);
+    return calculate(order)
   }, [order]);
   
   useEffect(() => {
