@@ -1,14 +1,14 @@
-import { Pizza, sizesAndPrices } from "@/providers/pizzas/interface";
-import { IUser, IUserLoginResponse } from "@/providers/users/interface";
-
+import {PizzaDto} from "@backend/pizzas/dto/create-pizza.dto"
+import {SizeByPriceDto} from "@backend/size-by-price/dto/create-size-by-price.dto"
+import {UserDto} from "@backend/users/dto/create-user.dto"
 export interface Store {
-    user: IUser | null;
-    pizzas: Pizza[] | null;
-    order: Pizza[];
-    sizeByPrice: sizesAndPrices[] | null;
-    addPizzas : (pizza: Pizza[]) => void;
-    getUserByData: (user: IUserLoginResponse) => void;
-    getSizeByPrice: (sizeByPrice: sizesAndPrices[]) => void;
-    addOrder: (order: Pizza) => void;
-    removeOrder: (id: number | string) => void;
+    user: UserDto | null;
+    pizzas: PizzaDto[] | null;
+    order: PizzaDto[];
+    sizeByPrice: SizeByPriceDto[] | null;
+    addPizzas : (pizza: PizzaDto[]) => void;
+    getUserByData: (user: UserDto) => void;
+    getSizeByPrice: (sizeByPrice: SizeByPriceDto[]) => void;
+    addOrder: (order: PizzaDto) => void;
+    removeOrder: (id: number | string | undefined) => void;
 }

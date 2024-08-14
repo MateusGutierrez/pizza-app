@@ -24,4 +24,7 @@ export class SizeByPriceService {
   findAll() {
     return this.sizeByPriceModel.find();
   }
+  destroy() {
+    return this.sizeByPriceModel.deleteMany()
+  }
 }

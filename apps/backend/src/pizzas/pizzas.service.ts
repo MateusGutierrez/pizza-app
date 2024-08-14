@@ -44,4 +44,7 @@ export class PizzasService {
       })
       .exec();
   }
+  destroy() {
+    return this.pizzaModel.deleteMany()
+  }
 }

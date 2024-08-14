@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback } from "react"
+import React from "react"
 import {
     Sheet,
     SheetContent,
@@ -16,18 +16,15 @@ import { HeaderTriggerRoutes } from "@/app/ui/routes"
 import { CartIcon } from "./cartIcon"
 import { store } from "@/store"
 
-
-
 export const Header = () => {
-    const { user, order } = store(({ user, order }) => ({ user, order }))
+    const { user } = store(({ user }) => ({ user }))
     const filteredRoutes = HeaderTriggerRoutes.filter( route => {
         if(user) return route.title !== 'Login' && route.title !== 'Cadastre-se'
         return route
     })
-    console.log(order, "order")
     return (
     <header className="flex items-center w-[100%] h-[200px] bg-[--color1] border-b-4 border-red-700">
-        <div className="flex m-auto items-center justify-between w-[75%]">
+        <div className="flex m-auto items-center justify-between w-[90%]">
             <Link href="/">
                 <Image src={logo} alt='logo' height={180}/>
             </Link>
@@ -35,28 +32,32 @@ export const Header = () => {
                 {user?.name ? (
                     <p>Olá, {user.name} !</p>
                 ) : null}
-                <CartIcon />
+                <Link href="/ui/cart">
+                    <CartIcon />
+                </Link>
                 <Sheet>
                     <SheetTrigger>
                         <FaBars />
                     </SheetTrigger>
-                    <SheetContent className="flex flex-col gap-4">
-                    {filteredRoutes.map((trigger, index) => (
-                        <Link key={index} href={trigger.link}>
-                            <SheetHeader>
-                                <SheetTitle>{trigger.title}</SheetTitle>
-                            </SheetHeader>
+                    <SheetContent className="flex flex-col gap-6">
+                    {filteredRoutes.map(({title, link, icon: Icon}, index) => (
+                        <Link key={index} href={link}>
+                            <div className="flex gap-4">
+                                <Icon/>
+                                <SheetHeader>
+                                    <SheetTitle>{title}</SheetTitle>
+                                </SheetHeader>
+                            </div>
                         </Link>
                     ))}
                     </SheetContent>
                     {user?.email ? (
                         <SheetContent>
                             <SheetHeader>
-                                <SheetTitle></SheetTitle>
-                            </SheetHeader>
-                        </SheetContent>
-                    ) : null
-                    }
+                                    <SheetTitle>{user.name}</SheetTitle>
+                                </SheetHeader>
+                            </SheetContent>
+                        ) : null}
                 </Sheet>
             </div>
         </div>

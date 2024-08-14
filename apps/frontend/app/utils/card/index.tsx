@@ -5,10 +5,14 @@ import { Button } from "@/components/ui/button"
 import { store } from "@/store"
 import { useToast } from "@/components/ui/use-toast"
 import { ToastAction } from "@/components/ui/toast"
+import uuid4 from "uuid4";
+import logo from "@/app/public/logoString"
 
 export const Card = ({ title, price}: { title: string, price: number}) => {
-    const {addOrder} = store(({addOrder}) => ({addOrder}))
+    const {addOrder, removeOrder} = store(({addOrder, removeOrder}) => ({addOrder, removeOrder}))
+    const uuid = uuid4();
     const { toast } = useToast()
+
     return (
         <div
             className="group flex flex-col justify-between items-start gap-2 max-w-full h-56 duration-500 relative rounded-lg p-4 bg-transparent hover:-translate-y-2 hover:shadow-xl shadow-gray-300"
@@ -26,12 +30,12 @@ export const Card = ({ title, price}: { title: string, price: number}) => {
             <Button
                 className="hover:bg-[#84985c] bg-[#cad2aa] text-gray-800 mt-6 rounded p-2 px-6 z-[2]"
                 onClick={() => { 
-                    addOrder({_id: price, flavor: title, price: price, size: 'promo', flavor_image: 'promo_alt', __v: price})
+                    addOrder({_id: uuid, flavor: title, price: price, size: 'Promoção', flavor_image: logo , __v: price})
                     toast({
                         title: `Promo adicionada ao carrinho!`,
                         description: `${title}`,
                         action: (
-                          <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+                          <ToastAction altText="Goto schedule to undo" onClick={() => removeOrder(uuid)}>Undo</ToastAction>
                         ),
                       })
                 }} 

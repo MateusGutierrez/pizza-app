@@ -1,27 +1,28 @@
 'use client'
 import { create } from 'zustand';
 import { Store } from './interface';
-import { Pizza, sizesAndPrices } from '@/providers/pizzas/interface';
+import {SizeByPriceDto} from "@backend/size-by-price/dto/create-size-by-price.dto"
 import { persist, createJSONStorage } from "zustand/middleware";
-import {  IUserLoginResponse } from '@/providers/users/interface';
+import {PizzaDto} from "@backend/pizzas/dto/create-pizza.dto"
+import { UserDto } from '@backend/users/dto/create-user.dto';
 
 export const store = create<Store>()(
     persist(
         (set, get) => ({
             user: null,
-            pizzas: null as Pizza[] | null,
-            order: [] as Pizza[], // Inicialize como array vazio
+            pizzas: null as PizzaDto[] | null,
+            order: [] as PizzaDto[], 
             sizeByPrice: null,
-            addPizzas: (pizzas: Pizza[]) => set({ pizzas }),
-            getUserByData: (user: IUserLoginResponse) => set({user}),
-            getSizeByPrice: (sizeByPrice: sizesAndPrices[]) => set({ sizeByPrice }),
-            addOrder: (newOrder: Pizza) => set((state) => ({
-                order: [...state.order, newOrder] // Garante que state.order é um array
+            addPizzas: (pizzas: PizzaDto[]) => set({ pizzas }),
+            getUserByData: (user: UserDto) => set({user}),
+            getSizeByPrice: (sizeByPrice: SizeByPriceDto[]) => set({ sizeByPrice }),
+            addOrder: (newOrder: PizzaDto) => set((state) => ({
+                order: [...state.order, newOrder]
             })),
-            removeOrder: (id: string | number) =>
+            removeOrder: (id: string | number | undefined) =>
                 set((state) => ({
-                    order: state.order.filter(pizza => pizza._id !== id) // Filtra pizzas pelo id
-                })),
+                order: state.order.filter(pizza => pizza._id !== id)
+            })),
         }),
         {
             name: 'session-storage',

@@ -39,4 +39,8 @@ export class PizzasController {
   remove(@Param('id') id: string) {
     return this.pizzaService.remove(id);
   }
+  @Delete()
+  destroy() {
+    return this.pizzaService.destroy();
+  }
 }

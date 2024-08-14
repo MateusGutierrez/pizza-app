@@ -15,8 +15,8 @@ export default function Login() {
   }, [login])
 
     return (
-        <div className="min-h-[80vh] w-[60%] flex m-auto justify-between items-center">
-          <div className="w-[30%] h-[600px]">
+        <div className="min-h-[80vh] w-[80%] flex m-auto justify-between items-center">
+          <div className="w-[30%] h-[600px] m-auto">
             <p className="text-4xl text-[#cd3c0c] mb-[4rem]">Login</p>
             <GenericForm 
               schema={LoginSchema}
@@ -24,7 +24,7 @@ export default function Login() {
               onSubmit={onSubmit}  
             />
           </div>
-          <Image src={loginImg} alt="pizza" className="w-[400px] h-[600px] rounded-3xl"/>
+          <Image src={loginImg} alt="pizza" className="h-[50%] p-[4rem] rounded-[8rem]"/>
         </div>
     )
 }
