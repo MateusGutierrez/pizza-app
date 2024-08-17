@@ -8,11 +8,11 @@ import { UserContext } from "@/providers/users"
 import { useCallback, useContext } from "react"
 
 export default function Register() {
-  const {register} = useContext(UserContext)
+  const { signup } = useContext(UserContext)
 
   const onSubmit = useCallback((values: TRegisterFormValue) => {
-    register(values)
-  }, [register])
+    signup(values)
+  }, [signup])
 
     return (
       <div className="min-h-[80vh] w-[80%] flex m-auto justify-between items-center" >

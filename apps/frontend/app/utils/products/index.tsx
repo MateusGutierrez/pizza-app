@@ -7,7 +7,7 @@ import Autoplay from "embla-carousel-autoplay"
 import { Carousel, CarouselContent, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 export const Menu = () => {
-    const { pizzas } = store(({pizzas}) => ({ pizzas }))
+    const { pizzas } = store(({ pizzas }) => ({ pizzas }))
     
     const plugin = React.useRef(
         Autoplay({ delay: 4000, stopOnInteraction: true })

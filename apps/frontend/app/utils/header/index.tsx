@@ -15,11 +15,13 @@ import Link from "next/link";
 import { HeaderTriggerRoutes } from "@/app/ui/routes"
 import { CartIcon } from "./cartIcon"
 import { store } from "@/store"
+import { LogOutIcon } from "lucide-react"
 
 export const Header = () => {
-    const { user } = store(({ user }) => ({ user }))
+    const { loggedUser } = store(({ loggedUser }) => ({ loggedUser }))
+    const { user } = loggedUser;
     const filteredRoutes = HeaderTriggerRoutes.filter( route => {
-        if(user) return route.title !== 'Login' && route.title !== 'Cadastre-se'
+        if(loggedUser?.user) return route.title !== 'Login' && route.title !== 'Cadastre-se'
         return route
     })
     return (
@@ -40,6 +42,14 @@ export const Header = () => {
                         <FaBars />
                     </SheetTrigger>
                     <SheetContent className="flex flex-col gap-6">
+                    {user?.email ? (
+                         <div className="flex gap-4">
+                             <LogOutIcon/>
+                             <SheetHeader>
+                                 <SheetTitle>Olá, {user.name}</SheetTitle>
+                             </SheetHeader>
+                         </div>
+                    ): null}
                     {filteredRoutes.map(({title, link, icon: Icon}, index) => (
                         <Link key={index} href={link}>
                             <div className="flex gap-4">
@@ -50,14 +60,15 @@ export const Header = () => {
                             </div>
                         </Link>
                     ))}
-                    </SheetContent>
                     {user?.email ? (
-                        <SheetContent>
-                            <SheetHeader>
-                                    <SheetTitle>{user.name}</SheetTitle>
-                                </SheetHeader>
-                            </SheetContent>
-                        ) : null}
+                         <div className="flex gap-4">
+                             <LogOutIcon/>
+                             <SheetHeader>
+                                 <SheetTitle>Logout</SheetTitle>
+                             </SheetHeader>
+                         </div>
+                    ): null}
+                    </SheetContent>
                 </Sheet>
             </div>
         </div>
