@@ -1,9 +1,10 @@
-import { Pizza } from '@/providers/pizzas/interface';
 import Fuse from 'fuse.js';
+import type { IFuseOptions } from 'fuse.js';
+import { Pizza } from '@/providers/pizzas/interface';
 import { isEmpty, map } from 'lodash';
 
 
-const FUZZY_SEARCH_OPTIONS: Fuse.IFuseOptions<Pizza> = {
+const FUZZY_SEARCH_OPTIONS: IFuseOptions<Pizza> = {
   includeScore: true,
   threshold: 0.5,
   keys: [
