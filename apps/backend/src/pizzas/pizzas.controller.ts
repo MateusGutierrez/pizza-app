@@ -1,16 +1,9 @@
 import { CreatePizzaDto } from './dto/create-pizza.dto';
-import { UpdatePizzaDto } from './dto/update-pizza.dto';
 import { PizzasService } from './pizzas.service';
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('pizzas')
 @Controller('pizzas')
 export class PizzasController {
   constructor(private readonly pizzaService: PizzasService) {}
@@ -28,11 +21,6 @@ export class PizzasController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.pizzaService.findOne(id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePizzaDto: UpdatePizzaDto) {
-    return this.pizzaService.update(id, updatePizzaDto);
   }
 
   @Delete(':id')

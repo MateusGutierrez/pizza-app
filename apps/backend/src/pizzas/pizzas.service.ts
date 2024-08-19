@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Pizza } from './entities/pizza.entity';
 import { CreatePizzaDto } from './dto/create-pizza.dto';
-import { UpdatePizzaDto } from './dto/update-pizza.dto';
 
 @Injectable()
 export class PizzasService {
@@ -24,19 +23,6 @@ export class PizzasService {
   findOne(id: string) {
     return this.pizzaModel.findById(id);
   }
-  update(id: string, updatePizzaDto: UpdatePizzaDto) {
-    return this.pizzaModel.findByIdAndUpdate(
-      {
-        _id: id,
-      },
-      {
-        $set: updatePizzaDto,
-      },
-      {
-        new: true,
-      },
-    );
-  }
   remove(id: string) {
     return this.pizzaModel
       .deleteOne({
@@ -45,6 +31,6 @@ export class PizzasService {
       .exec();
   }
   destroy() {
-    return this.pizzaModel.deleteMany()
+    return this.pizzaModel.deleteMany();
   }
 }
