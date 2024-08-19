@@ -47,9 +47,8 @@ export const UserProvider = ({children}: ContextProps) => {
         } catch (error) {
             console.log(error)
             toast({
-                title: String(error),
-              })
-            throw error
+                title: "E-mail ou senha incorretos",
+            })
         }
     }, [navigate, saveUser])
 
@@ -65,9 +64,9 @@ export const UserProvider = ({children}: ContextProps) => {
         } catch (error) {
             console.log(error)
             toast({
-                title: String(error),
-              })
-            throw error
+                title: "E-mail já em uso",
+            })
+           
         }
     }, [navigate, setAuthToken])
     return (

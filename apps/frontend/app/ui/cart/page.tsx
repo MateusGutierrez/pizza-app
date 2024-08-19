@@ -36,7 +36,7 @@ export default function Cart() {
                         <CartComponent orderList={order} removeOrder={removeOrder} />
                 </ScrollArea>
                 {total > 0 ? (
-                    <Card className="bg-color5 ml-4 mt-2 h-[60px] flex items-center justify-between p-4">
+                    <Card className="bg-color5 ml-4 mt-2 h-[60px] flex items-center justify-between p-4 w-full">
                         <span className="text-secondary text-2xl">Total</span>
                         <span className="text-secondary text-2xl">R$ {total.toFixed(2)}</span>
                     </Card>
