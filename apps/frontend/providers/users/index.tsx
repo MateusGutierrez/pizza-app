@@ -5,7 +5,6 @@ import { Api } from "@/api/api";
 import { store } from "@/store";
 import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
-import { EmailSenderDto } from '../../../backend/src/email-sender/email-sender.dto';
 import { message } from "../pizzas/message";
 import { TLoginFormValue } from "@/schemas/userSchema/login";
 import { TRegisterFormValue } from "@/schemas/userSchema/register";
@@ -20,7 +19,7 @@ export const UserProvider = ({children}: ContextProps) => {
         router.push(page)
     }, [router])
     
-    const emailSender = useCallback(async (data: EmailSenderDto) => {
+    const emailSender = useCallback(async (data: Message) => {
         try {
             const response = await Api.post("email-sender", data)
             console.log(response.data)
