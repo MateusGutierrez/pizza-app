@@ -1,13 +1,13 @@
 'use client'
 
-import {PizzaDto} from "@backend/pizzas/dto/create-pizza.dto"
 import { Card, CardHeader, CardDescription, CardContent } from "@/components/ui/card"
+import { Pizza } from "@/providers/pizzas/interface";
 import { isEmpty } from "lodash";
 import { ShoppingCart, Trash2Icon  } from "lucide-react";
 import Image from "next/image";
 
 interface Props {
-    orderList: PizzaDto[];
+    orderList: Pizza[];
     removeOrder: (id: number | string) => void;
 }
 
