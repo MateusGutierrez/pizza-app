@@ -115,4 +115,4 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICE
 
 ---
 
-**Autor**: Mateus Gutierrez (<mateus.gutierrez@lagoasoft.com.br>)
+**Autor**: Mateus Gutierrez (<mateusgutierrez9@gmail.com>)
