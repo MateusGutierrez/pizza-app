@@ -1,5 +1,6 @@
-import { LoginDto } from "@backend/auth/dto/login.dto";
-import { SignUpDto } from "@backend/auth/dto/signup.dto";
+import { TLoginFormValue } from "@/schemas/userSchema/login";
+import { TRegisterFormValue } from "@/schemas/userSchema/register";
+
 
 export interface ContextProps {
     children: React.ReactNode;
@@ -9,6 +10,6 @@ export interface Message{
     message: string
 }
 export interface IUserContext {
-    login: (data: LoginDto) => Promise<void>;
-    signup: (data: SignUpDto) => Promise<void>;
+    login: (data: TLoginFormValue) => Promise<void>;
+    signup: (data: TRegisterFormValue) => Promise<void>;
 }
