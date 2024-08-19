@@ -40,15 +40,16 @@ export default function GenericForm<T extends FieldValues>({ schema, defaultValu
               <FormItem>
                 <FormLabel>{key.charAt(0).toUpperCase() + key.slice(1)}</FormLabel>
                 <FormControl>
-                  <Input placeholder={key} {...field} type={key} required/>
+                  <Input placeholder={key} {...field} type={key} required />
                 </FormControl>
                 <FormMessage />
               </FormItem>
-            )}
-          />
+            )} />
         ))}
         <div className="flex justify-between items-center">
-          <Button type="submit">Login</Button>
+          <Button type="submit">
+            {hasNameValue ? ( <span>Register</span> ) : (<span>Login</span>)}
+          </Button>
           {!hasNameValue ? (
             <Button type="button">
               <Link href='/ui/register'>

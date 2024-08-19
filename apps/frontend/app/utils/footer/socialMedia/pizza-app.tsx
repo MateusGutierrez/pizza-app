@@ -1,6 +1,5 @@
-export const Github = () => {
-    return (
-        <section className="flex justify-center items-center">
+export const PizzaApp = () => (
+    <section className="flex justify-center items-center">
             <button
                 className="group flex justify-center p-2 rounded-md drop-shadow-xl bg-gradient-to-r from-gray-800 to-black text-white font-semibold hover:translate-y-3 transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
             >
@@ -20,9 +19,8 @@ export const Github = () => {
                 <span
                 className="absolute opacity-0 group-hover:opacity-100 group-hover:text-white group-hover:text-sm group-hover:-translate-y-10 duration-700"
                 >
-                GitHub
+                Project
                 </span>
             </button>
         </section>
-    )
-}
+)
