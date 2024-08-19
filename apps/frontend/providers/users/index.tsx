@@ -1,13 +1,15 @@
 import { createContext, useCallback } from "react";
 import React from "react";
-import { ContextProps, IUserContext } from "./interface";
+import { ContextProps, IUserContext, Message } from "./interface";
 import { Api } from "@/api/api";
 import { store } from "@/store";
 import { LoginDto } from '@backend/auth/dto/login.dto';
 import { SignUpDto } from '@backend/auth/dto/signup.dto';
 import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
-import { redirect } from "next/navigation";
+import { EmailSenderDto } from '../../../backend/src/email-sender/email-sender.dto';
+import { message } from "../pizzas/message";
+
 
 export const UserContext = createContext({} as IUserContext)
 
@@ -18,11 +20,26 @@ export const UserProvider = ({children}: ContextProps) => {
         router.push(page)
     }, [router])
     
+    const emailSender = useCallback(async (data: EmailSenderDto) => {
+        try {
+            const response = await Api.post("email-sender", data)
+            console.log(response.data)
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
+    }, [])
+
     const login = useCallback( async (data: LoginDto) => {
         try {
             const response = await Api.post("auth/login", data)
             console.log(response.data)
             saveUser(response.data)
+            const emailContent = {
+                email: response.data.user.email, 
+                message: message
+            }
+            emailSender(emailContent)
             toast({
                 title: "Login realizado com sucesso",
             })

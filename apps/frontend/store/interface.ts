@@ -10,6 +10,7 @@ export interface Store {
     addPizzas : (pizza: PizzaDto[]) => void;
     setAuthToken: (token: string) => void;
     saveUser: (user: LoggedUser) => void;
+    logout: () => void;
     getSizeByPrice: (sizeByPrice: SizeByPriceDto[]) => void;
     addOrder: (order: PizzaDto) => void;
     removeOrder: (id: number | string | undefined) => void;

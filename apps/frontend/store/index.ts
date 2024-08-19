@@ -17,6 +17,7 @@ export const store = create<Store>()(
             addPizzas: (pizzas: PizzaDto[]) => set({ pizzas }),
             setAuthToken: (token: string) => set({token}),
             saveUser: (loggedUser: LoggedUser) => set({ loggedUser }),
+            logout: () => set({loggedUser: undefined, token: null}),
             getSizeByPrice: (sizeByPrice: SizeByPriceDto[]) => set({ sizeByPrice }),
             addOrder: (newOrder: PizzaDto) => set((state) => ({
                 order: [...state.order, newOrder]

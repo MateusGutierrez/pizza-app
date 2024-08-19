@@ -4,7 +4,10 @@ import { SignUpDto } from "@backend/auth/dto/signup.dto";
 export interface ContextProps {
     children: React.ReactNode;
 }
-
+export interface Message{
+    email: string;
+    message: string
+}
 export interface IUserContext {
     login: (data: LoginDto) => Promise<void>;
     signup: (data: SignUpDto) => Promise<void>;
