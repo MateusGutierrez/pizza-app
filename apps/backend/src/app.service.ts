@@ -11,7 +11,7 @@ export class AppService {
       to: data.email,
       from: 'mateusgutierrez9@gmail.com',
       subject: 'Aproveite as promoções da Di Nonna Pizzaria',
-      html: `<div>${data.message}</div>`,
+      html: `<div style="display: flex; flex-direction: column;" >${data.message}</div>`,
     });
   }
 }
