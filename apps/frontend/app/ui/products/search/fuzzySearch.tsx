@@ -1,9 +1,10 @@
-import { PizzaDto } from '@backend/pizzas/dto/create-pizza.dto';
 import Fuse from 'fuse.js';
+import type { IFuseOptions } from 'fuse.js';
+import { Pizza } from '@/providers/pizzas/interface';
 import { isEmpty, map } from 'lodash';
 
 
-const FUZZY_SEARCH_OPTIONS: Fuse.IFuseOptions<PizzaDto> = {
+const FUZZY_SEARCH_OPTIONS: IFuseOptions<Pizza> = {
   includeScore: true,
   threshold: 0.5,
   keys: [
@@ -16,9 +17,9 @@ const FUZZY_SEARCH_OPTIONS: Fuse.IFuseOptions<PizzaDto> = {
 
 // eslint-disable-next-line import/prefer-default-export
 export function performFuzzySearch(
-  pizzas: Array<PizzaDto>,
+  pizzas: Array<Pizza>,
   fullText: string | null | undefined,
-): Promise<Array<PizzaDto>> {
+): Promise<Array<Pizza>> {
   return new Promise(resolve => {
     if (isEmpty(fullText)) {
       resolve(pizzas);

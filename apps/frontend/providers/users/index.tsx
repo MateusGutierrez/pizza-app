@@ -3,12 +3,11 @@ import React from "react";
 import { ContextProps, IUserContext, Message } from "./interface";
 import { Api } from "@/api/api";
 import { store } from "@/store";
-import { LoginDto } from '@backend/auth/dto/login.dto';
-import { SignUpDto } from '@backend/auth/dto/signup.dto';
 import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
-import { EmailSenderDto } from '../../../backend/src/email-sender/email-sender.dto';
 import { message } from "../pizzas/message";
+import { TLoginFormValue } from "@/schemas/userSchema/login";
+import { TRegisterFormValue } from "@/schemas/userSchema/register";
 
 
 export const UserContext = createContext({} as IUserContext)
@@ -20,7 +19,7 @@ export const UserProvider = ({children}: ContextProps) => {
         router.push(page)
     }, [router])
     
-    const emailSender = useCallback(async (data: EmailSenderDto) => {
+    const emailSender = useCallback(async (data: Message) => {
         try {
             const response = await Api.post("email-sender", data)
             console.log(response.data)
@@ -30,7 +29,7 @@ export const UserProvider = ({children}: ContextProps) => {
         }
     }, [])
 
-    const login = useCallback( async (data: LoginDto) => {
+    const login = useCallback( async (data: TLoginFormValue) => {
         try {
             const response = await Api.post("auth/login", data)
             console.log(response.data)
@@ -50,9 +49,9 @@ export const UserProvider = ({children}: ContextProps) => {
                 title: "E-mail ou senha incorretos",
             })
         }
-    }, [navigate, saveUser])
+    }, [emailSender, navigate, saveUser])
 
-    const signup = useCallback(async (data: SignUpDto) => {
+    const signup = useCallback(async (data: TRegisterFormValue) => {
         try {
             const response = await Api.post("auth/signup", data)
             console.log(response)

@@ -1,6 +1,7 @@
-import { PizzaDto } from "@backend/pizzas/dto/create-pizza.dto";
+import { Pizza } from "@/providers/pizzas/interface";
+
 
 export interface InputFormProps {
-    pizzas: PizzaDto[] | null;
-    setFilteredPizzas: (pizzas: PizzaDto[] | null) => void;
+    pizzas: Pizza[] | null;
+    setFilteredPizzas: (pizzas: Pizza[] | null) => void;
 }

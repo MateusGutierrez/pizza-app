@@ -1,7 +1,7 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { DefaultValues, FieldValues, SubmitHandler, useForm } from "react-hook-form"
+import { DefaultValues, FieldValues, Path, SubmitHandler, useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -35,7 +35,7 @@ export default function GenericForm<T extends FieldValues>({ schema, defaultValu
           <FormField
             key={key}
             control={form.control}
-            name={key}
+            name={key as Path<T>}
             render={({ field }) => (
               <FormItem>
                 <FormLabel>{key.charAt(0).toUpperCase() + key.slice(1)}</FormLabel>

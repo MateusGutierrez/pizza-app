@@ -1,9 +1,9 @@
 import { createContext } from "react";
 import React from "react";
-import { ContextProps, IPizzaContext } from "./interface";
+import { ContextProps, IPizzaContext, Pizza } from "./interface";
 import { Api } from "@/api/api";
 import { store } from "@/store";
-import {PizzaDto} from "@backend/pizzas/dto/create-pizza.dto"
+
 
 
 
@@ -19,7 +19,7 @@ export const PizzaProvider = ({children}: ContextProps) => {
                     Accept: '*/*',
                 }
             })
-            const filteredPizzas = response.data.filter((pizza: PizzaDto) => pizza.hasOwnProperty('flavor'))
+            const filteredPizzas = response.data.filter((pizza: Pizza) => pizza.hasOwnProperty('flavor'))
             addPizzas(filteredPizzas)
         } catch (error) {
             console.log(error)

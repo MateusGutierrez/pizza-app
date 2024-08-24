@@ -3,16 +3,16 @@
  
 import { ToastAction } from "@/components/ui/toast"
 import {  useToast } from "@/components/ui/use-toast"
-import {PizzaDto} from "@backend/pizzas/dto/create-pizza.dto"
 import styles from './Style.module.css'
 import background from "../card/assets/background.jpeg"
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { store } from '@/store'
+import { Pizza } from "@/providers/pizzas/interface"
 
 
 interface Props {
-    pizza: PizzaDto
+    pizza: Pizza
 }
 
 export const PizzaCard = ({pizza}: Props) => {
