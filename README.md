@@ -109,9 +109,6 @@ Para iniciar o backend:
 4. Faça um push para a branch (`git push origin feature/nome-da-feature`).
 5. Abra um Pull Request.
 
-## Licença
-
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
